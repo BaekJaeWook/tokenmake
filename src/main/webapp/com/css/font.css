@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+@font-face {
+ font-family:'NanumMyeongjo';
+ font-style: normal;
+ src: url('fonts/NanumMyeongjo.eot');
+ src: url('fonts/NanumMyeongjo.eot#iefix') format('embedded-opentype'),
+ url('fonts/NanumMyeongjo.woff') format('woff'),
+ url('fonts/NanumMyeongjo.ttf') format('truetype');
+}
+
+@font-face {
+ font-family:'NanumMyeongjoBold';
+ font-style: bold;
+ src: url('fonts/NanumMyeongjoBold.eot');
+ src: url('fonts/NanumMyeongjoBold.eot#iefix') format('embedded-opentype'),
+ url('fonts/NanumMyeongjoBold.woff') format('woff'),
+ url('fonts/NanumMyeongjoBold.ttf') format('truetype');
+}
+
+@font-face {
+ font-family:'Daum_SemiBold';
+ font-style: normal;
+ font-style: bold;
+ src: url('fonts/Daum_SemiBold.eot');
+ src: url('fonts/Daum_SemiBold.eot#iefix') format('embedded-opentype'),
+ url('fonts/Daum_SemiBold.woff') format('woff'),
+ url('fonts/Daum_SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+ font-family:'Daum_Regular';
+ font-style: normal;
+ src: url('fonts/Daum_Regular.eot');
+ src: url('fonts/Daum_Regular.eot#iefix') format('embedded-opentype'),
+ url('fonts/Daum_Regular.woff') format('woff'),
+ url('fonts/Daum_Regular.ttf') format('truetype');
+}
+
+
+
+@font-face {
+ font-family: 'NanumSquare';
+ font-weight: 400;
+ src: url(fonts/NanumSquareR.eot);
+ src: url(fonts/NanumSquareR.eot?#iefix) format('embedded-opentype'),
+      url(fonts/NanumSquareR.woff) format('woff'),
+      url(fonts/NanumSquareR.ttf) format('truetype');
+}
+@font-face {
+ font-family: 'NanumSquare';
+ font-weight: 700;
+ src: url(NanumSquareB.eot);
+ src: url(NanumSquareB.eot?#iefix) format('embedded-opentype'),
+      url(NanumSquareB.woff) format('woff'),
+      url(NanumSquareB.ttf) format('truetype');
+}
+@font-face {
+ font-family: 'NanumSquare';
+ font-weight: 800;
+ src: url(NanumSquareEB.eot);
+ src: url(NanumSquareEB.eot?#iefix) format('embedded-opentype'),
+      url(NanumSquareEB.woff) format('woff'),
+      url(NanumSquareEB.ttf) format('truetype');
+}
+@font-face {
+ font-family: 'NanumSquare';
+ font-weight: 300;
+ src: url(NanumSquareL.eot);
+ src: url(NanumSquareL.eot?#iefix) format('embedded-opentype'),
+      url(NanumSquareL.woff) format('woff'),
+      url(NanumSquareL.ttf) format('truetype');
+}

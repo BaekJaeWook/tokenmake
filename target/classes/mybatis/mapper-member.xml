@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace= "userControlMapperMember" >
+    
+    <select id ="selectSample" parameterType="java.util.HashMap" resultType= "java.util.HashMap">
+        SELECT *
+        FROM Tbl_Member_Master
+        WHERE userID = #{id}
+    </select>  
+    
+    <insert id="insertMemberReg" parameterType="map">
+		/* [mapper-member.xml][LoginDAO.insertMemberReg][회원계정생성] */
+		INSERT INTO TBL_MEMBER_MASTER(
+				 UserID
+				,PW
+				,RegDate)
+		VALUES(
+				 #{id}
+				,#{pw}
+				,now()
+				)
+	</insert>
+	
+</mapper>
