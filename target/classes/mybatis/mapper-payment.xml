@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace= "userControlMapperPayment" >   
+    
+    <insert id="insertPayInfo" parameterType="map">
+		/* [mapper-payment.xml][PaymentDAO.insertPaymentPersonInfos][결제 개인정보 결과] */
+		INSERT INTO Tbl_PersonalInfo(			
+				UserID						
+				,Email        			
+				,Firstname    			
+				,Lastname    			   
+				,Company     			   
+				,Address      			
+				,AddressDetail 			
+				,City           		   
+				,NationalDiv       	   
+				,Province       		   
+				,ZipCode  
+				,BuyDiv             
+				,RegDate 				   
+			  )
+		VALUES
+			(
+				#{id}
+				,#{email}
+				,#{fname}
+				,#{lname}
+				,#{company}
+				,#{addr}
+				,#{addrdetail}
+				,#{city}
+				,#{national}
+				,#{pros}
+				,#{pcode}
+				,#{buydiv}
+				,now()		
+		    )		
+					
+	</insert>
+    
+    <insert id="insertPayTokenResult" parameterType="map">
+		/* [mapper-payment.xml][PaymentDAO.insertMemberReg][토큰 구매 결제 결과] */
+		INSERT INTO Tbl_TokenCus_PayResult(
+				 UserID
+  			    ,Tokenname
+ 				,Tokensymbol
+				,TokenAmount
+				,TokenDecimals
+				,OwnerAddress
+				,Payresult
+				,Usepay
+				,TxHash 
+         	    ,SendAddr
+				,Regdate
+				,Paydate
+				)
+		VALUES
+		      (
+				 #{id}
+				 ,#{mytoken}
+				 ,#{tsymbol}
+				 ,#{tamount}
+				 ,#{tdecimals}
+				 ,#{taddr}
+				 ,"1"
+				 ,"01"
+				 ,#{hash}
+				 ,#{sendaddr}
+				 ,now()
+				 ,now()
+				)				
+	</insert>
+	
+	<insert id="insertPayTokenPackResult" parameterType="map">
+		/* [mapper-payment.xml][PaymentDAO.insertPayPackageReg][패키지 구매 결제 결과] */
+		INSERT INTO Tbl_TokenPack_PayResult(
+				 UserID
+  			    ,Tokenname
+ 				,Tokensymbol
+				,TokenAmount
+				,OwnerAddress				
+				,StartDate1  
+				,EndDate1           
+				,TokenPrice1        
+				,HardCap1           
+				,StartDate2         
+				,EndDate2           
+				,TokenPrice2        
+				,HardCap2           
+				,StartDate3         
+				,EndDate3           
+				,TokenPrice3        
+				,HardCap3           
+				,LnadingPage_YN     
+				,Samplp_YN				
+				,Payresult
+				,Usepay
+				,TxHash 
+         		,SendAddr
+				,Regdate
+				,Paydate
+				)
+		VALUES
+		      (
+				 #{id}
+				 ,#{mytoken}
+				 ,#{tsymbol}
+				 ,#{tamount}
+				 ,#{taddr}			
+				 ,#{psdate1}
+				 ,#{pedate1}
+				 ,#{price1}
+				 ,#{hard1}
+				 ,#{psdate2}
+				 ,#{pedate2}           
+				 ,#{price2}
+				 ,#{hard2}
+				 ,#{psdate3}
+				 ,#{pedate3}           
+				 ,#{price3}
+				 ,#{hard3}
+				 ,#{lpage}     
+				 ,#{spage}				 
+				 ,"1"
+				 ,"01"
+				 ,#{hash}
+				 ,#{sendaddr}				 
+				 ,now()
+				 ,now()
+				)				
+	</insert>
+	
+</mapper>

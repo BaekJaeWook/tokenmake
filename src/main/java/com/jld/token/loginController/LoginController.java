@@ -143,8 +143,7 @@ public class LoginController {
 					session = request.getSession(true);
 					session.setAttribute("sessionID", userId);
 					
-					out.println("<script>alert('정상 로그인 되었습니다.'); location.href='/';</script>");			
-							
+					out.println("<script>alert('정상 로그인 되었습니다.'); location.href='/';</script>");							
 					out.flush();
 					
 					//returnUrl = "redirect:/personalinfo.do";

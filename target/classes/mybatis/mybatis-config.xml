@@ -8,5 +8,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         <mapper resource ="/mybatis/mapper-sample.xml"/>
         <mapper resource ="/mybatis/mapper-member.xml"/>
         <mapper resource ="/mybatis/mapper-login.xml"/>
+        <mapper resource ="/mybatis/mapper-payment.xml"/>
     </mappers >
 </configuration>

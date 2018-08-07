@@ -11,7 +11,6 @@
  */
 package com.jld.token.dao;
 
-import java.util.List;
 import java.util.Map;
 
 public interface MemberDao {

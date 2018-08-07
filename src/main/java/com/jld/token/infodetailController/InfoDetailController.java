@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.omg.CosNaming.NamingContextExtPackage.AddressHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -237,11 +236,12 @@ public class InfoDetailController {
 		request.setCharacterEncoding("UTF-8");		
 		//response.setContentType("text/html; charset=UTF-8");		
 		response.setCharacterEncoding("UTF-8");
+		response.setContentType("application/x-www-form-urlencoded; charset=UTF-8");
 		
 		StringBuffer sb = new StringBuffer();
 		
 		//Address 정보
-		String paramMail = request.getParameter("email");
+		String paramMail = request.getParameter("personemail");
 		String paramFname = request.getParameter("fname");
 		String paramLname = request.getParameter("lname");
 		String paramCompany = request.getParameter("company");
@@ -252,13 +252,7 @@ public class InfoDetailController {
 		String paramPros = request.getParameter("pros");
 		String paramPcode = request.getParameter("pcode");		
 		//Address 정보 끝
-		
-		sb.append(paramFname);
-		sb.append(" ");
-		sb.append(paramLname);
-		sb.append(" ");
-		sb.append(paramCompany);
-		sb.append(" ");
+				
 		sb.append(paramAddr);
 		sb.append(" ");
 		sb.append(paramAddrDetail);
@@ -356,7 +350,7 @@ public class InfoDetailController {
 		model.addAttribute("lname", paramLname);
 		model.addAttribute("company", paramCompany);
 		model.addAttribute("addr", paramAddr);
-		model.addAttribute("tbuy", paramAddrDetail);		
+		model.addAttribute("addrdetail", paramAddrDetail);		
 		model.addAttribute("city", paramCity);
 		model.addAttribute("national", paramNational);
 		model.addAttribute("pros", paramPros);
@@ -393,4 +387,5 @@ public class InfoDetailController {
 		
 		return "/infodetail/paycomfirm";
 	}
+	
 }

@@ -3,27 +3,66 @@
 <%
    response.setHeader("cache-control","no-cache");
    response.setHeader("expires","0");
-   response.setHeader("pragma","no-cache");
+   response.setHeader("pragma","no-cache");   
+   //response.setHeader("content-Type","text/javascript");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
 <head>
+ <head>
   <meta  http-equiv="Content-Type"  content="text/html;charset=utf-8"/> 
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Ether Make</title>
   <meta name="keywords" content="" />
   <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
   <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" >
   <link rel="stylesheet" type="text/css" href="./font-awesome/css/font-awesome.min.css" >
-  <link rel="stylesheet" type="text/css" href="./css/style.css" />
+  <link rel="stylesheet" type="text/css" href="./css/style.css" /> 
   <link rel="stylesheet" type="text/css" href="./css/media.css" />
   <link rel="stylesheet" type="text/css" href="./css/noto-sans.css" />
   <link rel="stylesheet" type="text/css" href="./css/font.css"/ >
   <link rel="shortcut icon" href="./ico/favicon.png" />
+  
+  <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="./js/jquery-3.3.1.slim.js"></script>
+  <script type="text/javascript" src="./js/jquery-3.3.1.slim.min.js"></script>  
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.rawgit.com/ethereumjs/browser-builds/2fb69a714afe092b06645286f14b94f41e5c062c/dist/ethereumjs-tx.js"></script>    
+  
+  <script src="./js/web3.js"></script>
+  <script src="./js/web3.min.js"></script>    	    
+  <script src="./js/script.js"></script>
+
+  <script type="text/javascript">  
+  	
+  	$(document).ready(function(){  		
+  		//alert("test");  
+  		console.log("ready1");  		
+  		//var con = document.getElementById("myModal");  	      	    
+  		//$('#popUpModal').modal('show');  	    
+  	});
+  	
+  	
+	/*  $(window).on('load',function(){
+		$('#popUpModal').modal('show');
+	}); 
+   */
+    
+    function cb(err,res){
+    	if(res != null){
+    		alert(res);
+    	}else{
+    		alert(err);
+    	}
+    }
+  </script>	
+  
 </head>
 
  <body class="sub_body">
-
+ 
 	<header>
 		<div class="container">
 			<div class="row">
@@ -46,8 +85,9 @@
 				</div>
 			</div>
 		</div>
-	</header><!-- header -->
-<form action ="" method="post">
+	</header>
+	<!-- header -->
+<form id="frmPayment" name="frmPayment" method="post"> 
 	<article class="Sub_inner">
 		<div class="container">
 				<section class="sub_conts03 sub_re">
@@ -61,7 +101,7 @@
 							<div class="info_box">
 								<dl>
 									<dt>접속</dt>
-									<dd>${email}</dd>
+									<dd>${sessionID}</dd>
 								</dl>
 								<dl class="paym">
 									<dt>결제</dt>
@@ -78,8 +118,19 @@
 								<div class="text">
 									<img src="./images/credits.png" alt="카드 이미지"/>
 									<p class="explain">
-										"주문 검토"를 클릭하면 Coinbase Commerce로 리디렉션되어 안전하게 구매를 완료하게됩니다.
+										"결제하기"를 클릭하면 JLdevelopment Commerce로 리디렉션되어 안전하게 구매를 완료하게됩니다.<br>										
 									</p>
+									<div class="Add_group">
+										<div class="add_line">
+											<p class="add_tlt">Send Address</p>
+											<input type="text" id="payaddr" name="payaddr" class="form-control">
+										</div><!-- add_line -->
+										<div class="add_line">
+											<p class="add_tlt">Private Key</p>
+											<input type="text" id="priaddr" name="priaddr" class="form-control">
+											<center><b>"Private Key "는 저장 되지 않습니다"</b></center>
+										</div><!-- add_line -->
+									</div><!-- Add_group -->
 								</div>
 							</div><!-- base_box -->
 							<p class="pay_attention">모든 거래는 안전하게 암호화되어 있습니다.</p>
@@ -88,7 +139,7 @@
 				</div><!-- ch_body -->
 				<!-- token_info hidden -->
 
-				<input type="hidden" name="email" id="email" value="${email}">															
+				<input type="hidden" name="email" id="email" value="${sessionID}">															
 				<input type="hidden" name="fname" id="fname" value="${fname}">
 				<input type="hidden" name="lname" id="lname" value="${lname}">
 				<input type="hidden" name="company" id="company" value="${company}">
@@ -120,6 +171,12 @@
 				<input type="hidden" name="hard3" id="hard3" value="${hard3}">
 				<input type="hidden" name="lpage" id="lpage" value="${lpage}">
 				<input type="hidden" name="spage" id="spage" value="${spage}">
+				
+				<input type="hidden" name="camount" id="spage" value="10">
+				<input type="hidden" name="tamount" id="spage" value="100">
+				
+				<input type="hidden" name="hash" id="hash" value="">
+				
 		<!--  token_info hidden -->
 				<div class="continue_line cl">
 					<div class="col-sm-6">
@@ -127,13 +184,50 @@
 						<a href="javascript:history.back(-1);" class="back" ><&nbsp;&nbsp;고객 정보로 돌아 가기</a>
 					</div>
 					<div class="col-sm-6">
-						<button type="submit" class="btn btn-primary btn-lg btn-block" >결제하기</button>
+						<button type="submit" class="btn btn-primary btn-lg btn-block"   onClick="paymemt(); return false;">결제하기</button>
 					</div>
 					<p class="cl"></p>
 				</div><!-- continue_line -->
 				</section><!-- sub_conts03 -->
 		</div><!-- container -->
-	</article><!-- Sub_inner -->
- </form>
+	</article><!-- Sub_inner -->	
+ 
+ 	 <!-- Modal -->
+ <div class="modal fade" id="popUpModal" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <div class="thanks_conts">
+			<h1>감사합니다.</h1>
+			<h1>Ethereum 결제가 완료되었습니다.</h1><br/>
+			<span class="company">JLDevelopment</span> 는 귀하의 주문을 받았습니다.<br/>
+			귀하의 결제 내역은 <a href="https://etherscan.io/">https://etherscan.io/</a> 에서 확인 가능합니다.<br/>
+			구매하신 제품은 메인넷 배포발행 후 신청하신 메일로 내역 보내드리겠습니다.<br/>			  
+			<div class="link_text">
+				<p class="tlt">결제 내역 확인</p>
+				<ul class="link_ul" id="scan">
+					<!-- <li><a href="https://etherscan.io/address/" id="scanaddr">https://etherscan.io/address/</a></li>
+					<li><a href="https://etherscan.io/tx/" id >https://etherscan.io/tx/</a></li> -->
+				</ul>
+				<p>위 주소를 클릭하시면 내역을 볼 수 있습니다.</p>
+			</div><!-- link_text -->
+		  </div><!-- thanks_conts -->
+        </div><!-- modal-body -->
+        <div class="modal-footer">
+		  <h3>JLDevelopment</h3>	
+          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href='/'">닫기</button>
+        </div>
+      </div>
+	  <!-- Modal content End-->    
+    </div>
+  </div>
+  <!-- Modal End-->
+  </form>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  </body>
 </html>

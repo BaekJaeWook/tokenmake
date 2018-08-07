@@ -39,5 +39,24 @@ public class BookController {
 		model.addAttribute("books",bookService.getBookList(hm));
 		return "/book/book";
 	}
+	
+	@RequestMapping(value = "/loadmap.do",method = RequestMethod.GET)
+	public String loadmap(Model model) {
+				
+		logger.debug("Messag test");
+		logger.info("[info] Messt test logger");		
+		//logger.debug("try" , bookService.getBookList());
+		
+		/*BookVO bookVo = new BookVO();
+		bookVo.setId("bjt1@naver.com");	*/
+		
+		Map<String, Object> hm = new HashMap<String,Object>();
+		hm.put("id", "coin4@gmail.com");
+		
+		System.out.println("test loggger" + bookService.getBookList(hm));
+		
+		model.addAttribute("books",bookService.getBookList(hm));
+		return "/menu/roadmap01";
+	}
 
 }

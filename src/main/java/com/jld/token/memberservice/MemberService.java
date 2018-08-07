@@ -1,6 +1,6 @@
 /**
  *
- * @Class Name : LoginService.java
+ * @Class Name : MemberService.java
  * @Description : 
  * @Modification Information
  *

@@ -12,6 +12,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Ether Make</title>
   <meta name="keywords" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
   <meta name="description" content="" />
   <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" >
   <link rel="stylesheet" type="text/css" href="./font-awesome/css/font-awesome.min.css" >
@@ -35,7 +36,7 @@
   		console.log('${tamount}');
   		console.log('${tdecimals}');
   		console.log('${taddr}');
-  		console.log('${tbuy}');
+  		console.log("product div : " + '${tbuy}');
   		console.log('${psdate1}');
   		console.log('${pedate1}');
   		console.log('${price1}');
@@ -132,7 +133,7 @@
 						<div class="col-md-12 contact_info">
 							<h3>연락처 정보</h3>
 							<div class="write_line">
-								<input type="email" class="form-control" name="email" id="email" placeholder="Email" value="${sessionID}">
+								<input type="email" class="form-control" name="personemail" id="personemail" placeholder="Email" value="${sessionID}" readonly>
 							</div>
 						</div><!-- contact_info -->
 						<div class="col-md-12 billing_info">
